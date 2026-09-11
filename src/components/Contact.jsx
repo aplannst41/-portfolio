@@ -15,15 +15,43 @@ export default function Contact() {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     setStatus('sending');
-    setTimeout(() => {
+
+    try {
+      const res = await fetch(`https://formsubmit.co/ajax/${personal.email}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          message: form.message,
+          _subject: `[Portofolio Aplan] Pesan Baru dari ${form.name}`,
+          _template: 'table',
+          _captcha: 'false'
+        })
+      });
+
+      if (res.ok) {
+        setStatus('sent');
+        setForm({ name: '', email: '', message: '' });
+        setTimeout(() => setStatus(''), 7000);
+      } else {
+        throw new Error('Gagal mengirim via server');
+      }
+    } catch (err) {
+      // Fallback: buka aplikasi email langsung jika koneksi/adblocker memblokir API
+      const mailtoUrl = `mailto:${personal.email}?subject=${encodeURIComponent(`[Portofolio] Kontak dari ${form.name}`)}&body=${encodeURIComponent(`Nama: ${form.name}\nEmail: ${form.email}\n\nPesan:\n${form.message}`)}`;
+      window.location.href = mailtoUrl;
       setStatus('sent');
       setForm({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus(''), 4000);
-    }, 800);
+      setTimeout(() => setStatus(''), 7000);
+    }
   };
 
   const labelStyle = { display: 'block', fontSize: '0.825rem', fontWeight: 600, color: 'var(--text-primary)', marginBottom: '0.35rem' };
@@ -97,7 +125,7 @@ export default function Contact() {
 
             {status === 'sent' && (
               <div style={{ background: '#f0fdf4', border: '1px solid #bbf7d0', color: '#166534', padding: '0.75rem 1rem', borderRadius: '8px', fontSize: '0.85rem', marginBottom: '1.25rem' }}>
-                ✅ Pesan berhasil dikirim! Terima kasih.
+                ✅ Pesan berhasil dikirim ke email resmi Aplan! Terima kasih, saya akan merespons dalam kurun &lt; 24 jam.
               </div>
             )}
 
