@@ -12,7 +12,7 @@ export const portfolioData = {
       "IT Infrastructure & Network Operations"
     ],
     tagline: "Membangun sistem digital tangguh yang mengubah kebutuhan bisnis menjadi software bernilai tinggi.",
-    bio: "Mahasiswa Program Studi Sistem Informasi Universitas Malikussaleh (UNIMAL) yang berfokus pada rekayasa perangkat lunak Web & Mobile serta integrasi sistem informasi enterprise. Memiliki pengalaman praktis dalam merancang dan mengimplementasikan sistem 'Dashboard Monitoring Operasional' di Kantor Bandara UPBU Malikussaleh (Kemenhub) serta pemeliharaan infrastruktur TI. Memadukan analisis proses bisnis dengan penerapan kode bersih (Flutter, React, Laravel, C++), saya siap berkontribusi secara profesional dalam tim pengembang untuk menghadirkan solusi teknologi yang berdampak nyata bagi kemajuan industri.",
+    bio: "Mahasiswa Program Studi Sistem Informasi Universitas Malikussaleh (UNIMAL) yang berfokus pada rekayasa perangkat lunak Web & Mobile serta integrasi sistem informasi enterprise",
     location: "Aceh Utara / Terbuka untuk Remote & Relokasi",
     status: "Siap Berkontribusi: Full-Time / Kontrak / On-Site",
     email: "aplannst41@gmail.com",
