@@ -29,12 +29,7 @@ export const portfolioData = {
 
   // Nilai Tambah & Alasan Perusahaan Memilih Aplan
   companyTrustPillars: [
-    {
-      id: "proven-impact",
-      title: "Teruji di Lingkungan Nyata & Kritis",
-      desc: "Berpengalaman mengembangkan sistem monitoring operasional di instansi penerbangan sipil (Bandara UPBU Malikussaleh) dengan standar keandalan tinggi.",
-      metric: "100% Real Deployment"
-    },
+
     {
       id: "clean-architecture",
       title: "Clean Code & Mudah Dirawat",
